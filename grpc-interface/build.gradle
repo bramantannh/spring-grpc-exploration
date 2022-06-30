@@ -1,0 +1,30 @@
+plugins {
+    id 'com.google.protobuf'
+}
+
+dependencies {
+    runtimeOnly 'io.grpc:grpc-netty-shaded:1.47.0'
+    implementation 'io.grpc:grpc-protobuf:1.47.0'
+    implementation 'io.grpc:grpc-stub:1.47.0'
+    compileOnly 'org.apache.tomcat:annotations-api:6.0.53'
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protobufVersion}"
+    }
+    generatedFilesBaseDir = "$projectDir/src/generated"
+    clean {
+        delete generatedFilesBaseDir
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}

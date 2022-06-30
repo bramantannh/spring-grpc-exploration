@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package com.glx.exploration.grpcinterface;
+
+option java_multiple_files = true;
+option java_package = "com.glx.exploration.grpcinterface";
+
+// The service definition.
+service GrpcServerService {
+  // Sends a request
+  rpc compoundInterest (CompoundInterestRequest) returns (CompoundInterestReply) {}
+  rpc saveText (TextRequest) returns (TextReply) {}
+}
+
+// The request message
+message CompoundInterestRequest {
+  float initialBalance = 1;
+  float interestRate = 2;
+  int32 yearElapsed = 3;
+}
+
+message TextRequest {
+  string content = 1;
+}
+
+// The response message
+message CompoundInterestReply {
+  float result = 1;
+}
+
+message TextReply {
+  bool result = 1;
+}
