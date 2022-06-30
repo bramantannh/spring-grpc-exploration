@@ -1,0 +1,58 @@
+buildscript {
+	repositories {
+		maven {
+			url 'https://plugins.gradle.org/m2/'
+		}
+	}
+	ext {
+		projectVersion = '2.14.0-SNAPSHOT'
+
+		// https://github.com/grpc/grpc-java/releases
+		grpcVersion = '1.46.0'
+
+		// https://github.com/google/guava/releases
+		guavaVersion = '31.1-jre'
+		// https://github.com/protocolbuffers/protobuf/releases
+		protobufVersion = '3.21.1'
+		protobufGradlePluginVersion = '0.8.18'
+
+		// https://github.com/spring-projects/spring-boot/releases
+		springBootVersion = '2.6.7'
+		// https://github.com/spring-cloud/spring-cloud-release/releases
+		springCloudVersion = '2021.0.3'
+		// https://github.com/alibaba/spring-cloud-alibaba/releases
+		springCloudAlibabaNacosVersion = '2021.1'
+
+		lombokPluginVersion = '6.5.0.2'
+		versioningPluginVersion = '2.15.1'
+		versionsPluginVersion = '0.42.0'
+	}
+}
+
+plugins {
+	id 'java'
+	id 'java-library'
+	id 'org.springframework.boot' version '2.7.1' apply false
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'com.google.protobuf' version '0.8.18'
+}
+
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'idea'
+	apply plugin: 'io.spring.dependency-management'
+
+	repositories {
+		mavenCentral()
+	}
+
+	buildscript {
+		repositories {
+			maven { url 'https://plugins.gradle.org/m2/' }
+		}
+	}
+}
+
+group = 'com.glx'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'

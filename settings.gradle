@@ -1,0 +1,6 @@
+rootProject.name = 'exploration'
+include 'grpc-interface'
+include 'grpc-server'
+include 'rest-server'
+include 'exploration-client'
+
