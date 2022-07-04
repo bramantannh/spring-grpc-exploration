@@ -13,4 +13,7 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
     testImplementation 'io.projectreactor:reactor-test:3.4.18'
+
+    implementation 'net.devh:grpc-client-spring-boot-starter:2.13.1.RELEASE'
+    implementation project(':grpc-interface')
 }
