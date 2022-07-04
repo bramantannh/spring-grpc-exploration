@@ -44,7 +44,7 @@ public class ExplorationClientService {
 
   public void restSaveText() {
     TextInput request = TextInput.builder()
-        .content(ExplorationConstant.LOREM_IPSUM_TEN_MB)
+        .content(ExplorationConstant.LOREM_IPSUM_ONE_MB)
         .build();
 
     Boolean result = explorationWebCLient.post()
@@ -72,7 +72,7 @@ public class ExplorationClientService {
 
   public void grpcSaveText() {
     TextRequest request = TextRequest.newBuilder()
-        .setContent(ExplorationConstant.LOREM_IPSUM_TEN_MB)
+        .setContent(ExplorationConstant.LOREM_IPSUM_ONE_MB)
         .build();
 
     TextReply result = grpcServerServiceStub.saveText(request);
