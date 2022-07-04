@@ -11,38 +11,32 @@ import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-/**
- * MyServiceImpl Copyright (c) 2022 GLAIR. All rights reserved.
- *
- * @author bramanta.n.n.haq
- * @since Jun 28, 2022.
- **/
 @GrpcService
 public class GrpcServerServiceImpl extends GrpcServerServiceGrpc.GrpcServerServiceImplBase {
 
   @Autowired private TextRepository textRepository;
 
   @Override
-  public void compoundInterest(CompoundInterestRequest req, StreamObserver<CompoundInterestReply> responseObserver) {
+  public void compoundInterest(CompoundInterestRequest request, StreamObserver<CompoundInterestReply> responseObserver) {
     CompoundInterestReply reply = CompoundInterestReply.newBuilder()
-        .setResult(calculateCompoundInterest(req))
+        .setResult(calculateCompoundInterest(request))
         .build();
     responseObserver.onNext(reply);
     responseObserver.onCompleted();
   }
 
-  private float calculateCompoundInterest(CompoundInterestRequest input) {
-    int compoundInterval = 12;
+  private double calculateCompoundInterest(CompoundInterestRequest input) {
+    double compoundInterval = 12.0;
 
-    return (float) (input.getInitialBalance()
-            * Math.pow(1 + input.getInterestRate()/ compoundInterval,
-            compoundInterval * input.getYearElapsed()));
+    return input.getInitialBalance()
+        * Math.pow(1 + input.getInterestRate() / compoundInterval,
+        compoundInterval * input.getYearElapsed());
   }
 
   @Override
-  public void saveText(TextRequest req, StreamObserver<TextReply> responseObserver) {
+  public void saveText(TextRequest request, StreamObserver<TextReply> responseObserver) {
     Text text = Text.builder()
-        .content(req.getContent())
+        .content(request.getContent())
         .build();
 
     textRepository.saveAndFlush(text);
