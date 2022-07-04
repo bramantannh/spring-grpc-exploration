@@ -52,9 +52,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 13: {
+          case 9: {
 
-            result_ = input.readFloat();
+            result_ = input.readDouble();
             break;
           }
           default: {
@@ -92,13 +92,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESULT_FIELD_NUMBER = 1;
-  private float result_;
+  private double result_;
   /**
-   * <code>float result = 1;</code>
+   * <code>double result = 1;</code>
    * @return The result.
    */
   @java.lang.Override
-  public float getResult() {
+  public double getResult() {
     return result_;
   }
 
@@ -116,8 +116,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (java.lang.Float.floatToRawIntBits(result_) != 0) {
-      output.writeFloat(1, result_);
+    if (java.lang.Double.doubleToRawLongBits(result_) != 0) {
+      output.writeDouble(1, result_);
     }
     unknownFields.writeTo(output);
   }
@@ -128,9 +128,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (java.lang.Float.floatToRawIntBits(result_) != 0) {
+    if (java.lang.Double.doubleToRawLongBits(result_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(1, result_);
+        .computeDoubleSize(1, result_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -147,8 +147,8 @@ private static final long serialVersionUID = 0L;
     }
     com.glx.exploration.grpcinterface.CompoundInterestReply other = (com.glx.exploration.grpcinterface.CompoundInterestReply) obj;
 
-    if (java.lang.Float.floatToIntBits(getResult())
-        != java.lang.Float.floatToIntBits(
+    if (java.lang.Double.doubleToLongBits(getResult())
+        != java.lang.Double.doubleToLongBits(
             other.getResult())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -162,8 +162,8 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + RESULT_FIELD_NUMBER;
-    hash = (53 * hash) + java.lang.Float.floatToIntBits(
-        getResult());
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getResult()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -301,7 +301,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      result_ = 0F;
+      result_ = 0D;
 
       return this;
     }
@@ -378,7 +378,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.glx.exploration.grpcinterface.CompoundInterestReply other) {
       if (other == com.glx.exploration.grpcinterface.CompoundInterestReply.getDefaultInstance()) return this;
-      if (other.getResult() != 0F) {
+      if (other.getResult() != 0D) {
         setResult(other.getResult());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -410,33 +410,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float result_ ;
+    private double result_ ;
     /**
-     * <code>float result = 1;</code>
+     * <code>double result = 1;</code>
      * @return The result.
      */
     @java.lang.Override
-    public float getResult() {
+    public double getResult() {
       return result_;
     }
     /**
-     * <code>float result = 1;</code>
+     * <code>double result = 1;</code>
      * @param value The result to set.
      * @return This builder for chaining.
      */
-    public Builder setResult(float value) {
+    public Builder setResult(double value) {
       
       result_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>float result = 1;</code>
+     * <code>double result = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearResult() {
       
-      result_ = 0F;
+      result_ = 0D;
       onChanged();
       return this;
     }

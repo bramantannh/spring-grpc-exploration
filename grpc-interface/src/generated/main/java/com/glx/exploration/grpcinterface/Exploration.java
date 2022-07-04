@@ -48,7 +48,7 @@ public final class Exploration {
       "t\022\026\n\016initialBalance\030\001 \001(\002\022\024\n\014interestRat" +
       "e\030\002 \001(\002\022\023\n\013yearElapsed\030\003 \001(\005\"\036\n\013TextRequ" +
       "est\022\017\n\007content\030\001 \001(\t\"\'\n\025CompoundInterest" +
-      "Reply\022\016\n\006result\030\001 \001(\002\"\033\n\tTextReply\022\016\n\006re" +
+      "Reply\022\016\n\006result\030\001 \001(\001\"\033\n\tTextReply\022\016\n\006re" +
       "sult\030\001 \001(\0102\214\002\n\021GrpcServerService\022\212\001\n\020com" +
       "poundInterest\022:.com.glx.exploration.grpc" +
       "interface.CompoundInterestRequest\0328.com." +

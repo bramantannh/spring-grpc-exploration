@@ -8,8 +8,8 @@ public interface CompoundInterestReplyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>float result = 1;</code>
+   * <code>double result = 1;</code>
    * @return The result.
    */
-  float getResult();
+  double getResult();
 }
